@@ -1,4 +1,4 @@
-# Fiber Tension Microscopy (FTM)
+# Fiber Tension Microscopy (FiberTM)
 
 > **Measure internal tension of individual ECM fibers from confocal line scans, and paint full fields-of-view by tension.**  
 > MATLAB reference implementation + analysis utilities.
@@ -27,7 +27,7 @@
 
 ## Overview
 
-**Fiber Tension Microscopy (FTM)** is a hardware + computational framework to quantify **tension within individual fibers** of a fibrous extracellular matrix (ECM) using any commercial **laser scanning confocal microscope**. The code here:
+**Fiber Tension Microscopy (FiberTM)** is a hardware + computational framework to quantify **tension within individual fibers** of a fibrous extracellular matrix (ECM) using any commercial **laser scanning confocal microscope**. The code here:
 - tracks **sub-diffraction centroid fluctuations** of fibers from **rapid line scans**,
 - converts the **mean squared displacement (MSD)** of fiber midpoints to a **dimensionless tension** \\( \phi \\) via an odd-mode sum model for semiflexible filaments,
 - returns **physical tension** \\( \tau \\) (pN), and
