@@ -95,12 +95,11 @@ for k = 1:nFiles
     meta       = bf{1,2};
 
     % Stack planes (rows=time/cycle, cols=space pixels)
-    nPlanes = size(planesCell, 1);
-    data = zeros(nPlanes, numel(planesCell{1,1}), 'double');
-    for p = 1:nPlanes
-        data(p,:) = double(planesCell{p,1});
-    end
-
+    % data = zeros(nPlanes, numel(planesCell{1,1}), 'double');
+    % for p = 1:nPlanes
+    %     data(p,:) = double(planesCell{p,1});
+    % end
+    data = vertcat(planesCell{:, 1});
     % Try to recover line period (seconds per line). Vendors differ in keys.
     linePeriodSeconds(k) = parseLinePeriod(meta);
 
@@ -152,12 +151,11 @@ if args.showExample
     bf = bfopen(fullfile(args.dataDir, files{k}));
     planesCell = bf{1,1};
     nPlanes = size(planesCell, 1);
-    A = zeros(nPlanes, numel(planesCell{1,1}), 'double');
-    for p = 1:nPlanes
-        A(p,:) = double(planesCell{p,1});
-    end
-
-    figure('Color','w','Name','Example line-scan preview');
+    % A = zeros(nPlanes, numel(planesCell{1,1}), 'double');
+    % for p = 1:nPlanes
+    %     A(p,:) = double(planesCell{p,1});
+    % end     
+    A = vertcat(planesCell{:, 1});    figure('Color','w','Name','Example line-scan preview');
     imagesc(A, [0, prctile(A(:), 99.5)]);
     colormap('gray'); axis tight; set(gca,'YDir','normal');
     ax = gca; ax.FontSize = 12;
